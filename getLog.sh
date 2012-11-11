@@ -26,10 +26,12 @@ adb logcat -v time -d -b radio >logcat_radio.log
 echo Dumping events...
 adb logcat -v time -d -b events >logcat_events.log
 
+# force update blocks to disk
+sync
 echo "Ziping files(logs_${defTime}.tar.gz)..."
 sleep 3
 tar -zcf logs_${defTime}.tar.gz ${defFiles}
-
+sync
 echo Removing files...
 rm -f ${defFiles}
 echo Dumping all system logs done.
