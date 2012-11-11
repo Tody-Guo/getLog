@@ -11,19 +11,19 @@
 defTime=`date +"%y%m%d%k%M%S"`
 defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log"
 
-echo Waiting for Android devices ready...
+echo "Waiting for Android devices ready..."
 adb wait-for-devices
 
-echo Dumping dmesg...
+echo "Dumping dmesg..."
 adb shell dmesg > dmesg.log
 
-echo Dumping logcat...
+echo "Dumping logcat..."
 adb logcat -v time -d >logcat.log
 
-echo Dumping radio...
+echo "Dumping radio..."
 adb logcat -v time -d -b radio >logcat_radio.log
 
-echo Dumping events...
+echo "Dumping events..."
 adb logcat -v time -d -b events >logcat_events.log
 
 # force update blocks to disk
@@ -32,6 +32,6 @@ echo "Ziping files(logs_${defTime}.tar.gz)..."
 sleep 3
 tar -zcf logs_${defTime}.tar.gz ${defFiles}
 sync
-echo Removing files...
+echo "Removing files..."
 rm -f ${defFiles}
-echo Dumping all system logs done.
+echo "Dumping all system logs done."
