@@ -1,6 +1,6 @@
 mmcinfo 1
 
-fatls mmc 0
+fatls mmc 0
 fatload mmc 0 82000000 u-boot-aml-ucl.bin
 mmcinfo 1
 mmc write 1 82000000 0 60000 
