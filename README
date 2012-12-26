@@ -3,3 +3,9 @@ getLog.sh is for dumping Android System logs for analysis, because that tell us 
 (c) T-ware Inc.
 Tody 2012
 
+
+changelog
+~~~~~~~~~~
+
+2013/01/03:
+  *) add new adb support for Rockchip	
