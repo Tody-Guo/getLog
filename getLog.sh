@@ -7,9 +7,17 @@
 #      (c) T-ware Inc.
 #      2012/11/08
 
-
-defTime=`date +"%y%m%d%k%M%S"`
+defTime=`date +"%y%m%d%H%M%S"`
 defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log"
+
+if [ ! "" == "$1" ]; then
+	defTime="$1"
+fi
+
+if [ "real" == "$1" ]; then
+	adb logcat -v time
+	exit 1
+fi
 
 echo "Waiting for Android devices ready..."
 adb wait-for-devices

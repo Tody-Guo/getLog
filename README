@@ -7,5 +7,8 @@ Tody 2012
 changelog
 ~~~~~~~~~~
 
+2013/01/04:
+  *) add some parameters in getLog.sh
+
 2013/01/03:
   *) add new adb support for Rockchip	
