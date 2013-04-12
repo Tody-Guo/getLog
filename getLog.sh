@@ -36,9 +36,12 @@ adb logcat -v time -d -b events >logcat_events.log
 
 # force update blocks to disk
 sync
+
+[ ! -d ./logs ] && mkdir ./logs
+
 echo "Ziping files(logs_${defTime}.tar.gz)..."
-sleep 3
-tar -zcf logs_${defTime}.tar.gz ${defFiles}
+sleep 2
+tar -zcf logs/logs_${defTime}.tar.gz ${defFiles}
 sync
 echo "Removing files..."
 rm -f ${defFiles}
