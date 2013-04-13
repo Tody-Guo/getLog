@@ -1,11 +1,14 @@
 #!/bin/sh
 # this is for dumping Android System logs shell script
 #
-# Rev: 1.0.0
+# Rev: 1.0.2
 # Author: Tody
 # Copyright: 
 #      (c) T-ware Inc.
 #      2012/11/08
+# updated 2013/04/13
+# Changelog:
+#    1) added dumpsys & dumpstate & processes information
 
 defTime=`date +"%y%m%d%H%M%S"`
 defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log ./dumpsys.log ./dumpstate.log ./processes.log"
