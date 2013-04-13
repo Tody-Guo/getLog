@@ -8,7 +8,7 @@
 #      2012/11/08
 
 defTime=`date +"%y%m%d%H%M%S"`
-defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log"
+defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log ./dumpsys.log ./dumpstate.log ./processes.log"
 
 if [ ! "" == "$1" ]; then
 	defTime="$1"
@@ -33,6 +33,15 @@ adb logcat -v time -d -b radio >logcat_radio.log
 
 echo "Dumping events..."
 adb logcat -v time -d -b events >logcat_events.log
+
+echo "Dumping states..."
+adb shell dumpstate /proc/self/fd/0 > dumpstate.log
+
+echo "Dumping app..."
+adb shell dumpsys > dumpsys.log
+
+echo "Dumping processes..."
+adb shell ps -x > processes.log
 
 # force update blocks to disk
 sync
