@@ -27,6 +27,7 @@ adb wait-for-devices
 
 echo "Dumping dmesg..."
 adb shell dmesg > dmesg.log
+adb shell cat /proc/kmsg >> dmesg.log
 
 echo "Dumping logcat..."
 adb logcat -v time -d >logcat.log
