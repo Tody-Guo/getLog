@@ -1,23 +1,25 @@
 #!/bin/sh
 # this is for dumping Android System logs shell script
 #
-# Rev: 1.0.2
+# Rev: 1.0.3
 # Author: Tody
 # Copyright: 
 #      (c) T-ware Inc.
 #      2012/11/08
 # updated 2013/04/13
+# updated 2013/07/13 v1.0.3
 # Changelog:
 #    1) added dumpsys & dumpstate & processes information
+#    2) correct if statment
 
 defTime=`date +"%y%m%d%H%M%S"`
 defFiles="./dmesg.log ./logcat.log ./logcat_radio.log ./logcat_events.log ./dumpsys.log ./dumpstate.log ./processes.log"
 
-if [ ! "" == "$1" ]; then
+if [ "" != "$1" ]; then
 	defTime="$1"
 fi
 
-if [ "real" == "$1" ]; then
+if [ "real" = "$1" ]; then
 	adb logcat -v time
 	exit 1
 fi
